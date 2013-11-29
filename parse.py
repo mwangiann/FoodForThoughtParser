@@ -26,8 +26,7 @@ for order_dict in list:
     
 
 for order in orders_list:
-    print order.user_id
-
+    print "user: " + str(order.user_id) + "  number of order items: " + str(order.number_of_items())
 
 
 

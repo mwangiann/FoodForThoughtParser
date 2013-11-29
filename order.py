@@ -10,3 +10,6 @@ class Order(object):
         self.items = []
         for item_dict in order_dict['items']:
             self.items.append(Item(item_dict))
+
+    def number_of_items(self):
+    	return len(self.items)
