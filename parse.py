@@ -42,6 +42,11 @@ def biggest_order():
 
 print "max no of items " + str(biggest_order())
 
+def most_expensive_order():
+    total_price = 0
+    for order_hash in list:
+
+
 
 
 

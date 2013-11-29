@@ -13,3 +13,11 @@ class Order(object):
 
     def number_of_items(self):
     	return len(self.items)
+
+    def total_price(self):
+    	total_price = 0
+    	for item in self.items:
+    		total_price += item.price 
+    	return total_price
+
+    			
