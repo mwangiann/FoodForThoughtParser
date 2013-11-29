@@ -21,7 +21,10 @@ class TestParser(unittest.TestCase):
         self.assertEqual(order.id,1)
         self.assertEqual(order.user_id,7)
         self.assertEqual(order.items[0].id, 4)
-    
+    def test_no_of_order_items(self):
+        order = Order(self.order_hash)
+        self.assertEqual(len(order.items),1)
+
 
 if __name__ == '__main__':
     unittest.main()
