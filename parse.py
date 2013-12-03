@@ -32,25 +32,7 @@ for order_dict in list:
 #     print "user: " + str(order.user_id) + "  number of order items: " + str(order.number_of_items())
 
 
-# def biggest_order():
-#         max_value = 0
-#         for order_hash in list:
-#             order = Order(order_hash)
-#             if max_value < order.number_of_items():
-#                 max_value = order.number_of_items()
-#         return max_value
-
-# print "max no of items " + str(biggest_order())
-
-def most_expensive_order():
-    order_total_price = 0
-    most_expensive_order  = Order({"id":1,"created_at":"2013-10-06T09:55:46.385Z","updated_at":"2013-10-10T15:08:15.198Z","user_id":7,"items":[{"id":4,"name":"Another item","price":1000,"created_at":"2013-09-30T19:08:53.228Z","updated_at":"2013-10-20T10:02:56.701Z","available":True,"item_type":"food"}]})
-    for order_hash in list:
-        order = Order(order_hash)
-        if order_total_price < order.total_price():
-            most_expensive_order = order
-
-    return most_expensive_order
+print "max no of items " + str(biggest_order())
 
 order = most_expensive_order()
 print "most expensive order: "+ str(order.total_price())
