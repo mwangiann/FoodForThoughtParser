@@ -16,6 +16,14 @@ class Parser:
 
 		return max_value
 
+	def order_list_with_num_of_items(self, num_of_items):
+		biggest_order_list = []
+		for order in self.order_list:
+			if order.number_of_items() == num_of_items:
+				biggest_order_list.append(order)
+
+		return biggest_order_list
+
 
 	def most_expensive_order(self):
 	    order_total_price = 0

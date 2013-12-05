@@ -3,6 +3,7 @@ import urllib2
 from item import Item
 from order import Order
 from parser import Parser
+from user_list import UserList
 
 
 
@@ -11,7 +12,20 @@ from parser import Parser
 with open('orders_json_backup', 'r') as f:
     orders_json = f.read()
 
-print "biggest order is: " + str(Parser(orders_json).biggest_order())
+parser = Parser(orders_json)
+
+with open('users_json_backup', 'r') as f:
+    users_json = f.read()
+
+user_list = UserList(users_json)
+
+print "biggest order is: " + str(parser.biggest_order())
+
+for order in parser.order_list_with_num_of_items(9):
+	print "User: " + user_list.user_by_id(order.user_id)['username']
+
+
+#print "user 1 is: " + user_list.user_by_id(5)['username']
 
 #for element in list:
  #   print len(element['items'])
