@@ -1,9 +1,9 @@
 import json
 import urllib2
-from item import Item
-from order import Order
-from parser import Parser
-from user_list import UserList
+from src.item import Item
+from src.order import Order
+from src.parser import Parser
+from src.user_list import UserList
 
 
 
