@@ -29,6 +29,11 @@ class TestParser(unittest.TestCase):
     def test_should_return_biggest_orders(self):
     	self.assertEqual(len(self.parser.order_list_with_num_of_items(3)), 7)
 
+    def test_should_return_users_who_ordered_most_of_item(self):
+    	user_and_times_ordered = self.parser.users_who_ordered_most_of(8)
+    	for key, value in user_and_times_ordered.iteritems():
+    		print str(key) + " " + str(value)
+
 
 if __name__ == '__main__':
 	unittest.main()

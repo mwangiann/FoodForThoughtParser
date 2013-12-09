@@ -33,26 +33,26 @@ class Parser:
 
 	    return most_expensive_order
 
-	def user_who_ordered_most_of(self, item_id): # n.b: yet to be refactored
+	def users_who_ordered_most_of(self, item_id): # n.b: yet to be refactored
 		order_item_list = []
-		for order in order_list:
-			if len(filter (lambda x : x.item_id == item_id, order.items)) > 0:
+		for order in self.order_list:
+			if len(filter (lambda x : x.id == item_id, order.items)) > 0:
 				order_item_list.append(order)
 
-		user_and_no_ordered = {}
+		user_and_num_ordered = {}
 		for order in order_item_list:
-			if user_and_no_ordered.has_key(order.user_id):
-				user_and_no_ordered[order.user_id] = user_and_no_ordered[order.user_id] + 1
+			if user_and_num_ordered.has_key(order.user_id):
+				user_and_num_ordered[order.user_id] = user_and_num_ordered[order.user_id] + 1
 			else:
-				user_and_no_ordered.append(order.user_id, 1)
+				user_and_num_ordered.update({order.user_id : 1})
 
-		max_no_ordered =  max(user_and_no_ordered.values())
+		max_no_ordered =  max(user_and_num_ordered.values())
 
 		users_with_max_orders = {}
 
-		for key, value in user_and_no_ordered.items():
+		for key, value in user_and_num_ordered.iteritems():
 			if value == max_no_ordered:
-				users_with_max_orders = {key, value}
+				users_with_max_orders.update({key: value})
 
 		return users_with_max_orders
 
