@@ -31,8 +31,8 @@ class TestParser(unittest.TestCase):
 
     def test_should_return_users_who_ordered_most_of_item(self):
     	user_and_times_ordered = self.parser.users_who_ordered_most_of(8)
-    	for key, value in user_and_times_ordered.iteritems():
-    		print str(key) + " " + str(value)
+    	self.assertTrue(user_and_times_ordered.has_key(7))
+    	self.assertEqual(user_and_times_ordered[7], 4)
 
 
 if __name__ == '__main__':
