@@ -34,6 +34,14 @@ class TestParser(unittest.TestCase):
     	self.assertTrue(user_and_times_ordered.has_key(7))
     	self.assertEqual(user_and_times_ordered[7], 4)
 
+    def test_should_return_the_user_who_has_paid_the_highest_amount(self):
+    	user_who_has_paid_highest = self.parser.user_who_has_paid_highest();
+    	print user_who_has_paid_highest
+    	self.assertTrue(user_who_has_paid_highest.has_key(7))
+
+
+
+
 
 if __name__ == '__main__':
 	unittest.main()

@@ -68,3 +68,32 @@ class Parser:
 			if value == max_no_ordered:
 				users_with_max_orders.update({key: value})
 		return users_with_max_orders
+
+	def user_who_has_paid_highest(self):
+		users_and_overall_total_price = self.users_and_overall_total_price()
+		highest_price = max(users_and_overall_total_price.values())
+		return self.users_with_overall_highest_total_price(users_and_overall_total_price, highest_price)
+
+
+
+	def users_and_overall_total_price(self):
+		users_and_overall_total_price = {}
+		for order in self.order_list:
+			if not order.user_id <= 1:
+				if users_and_overall_total_price.has_key(order.user_id):
+					users_and_overall_total_price[order.user_id] += order.total_price()
+				else:
+					users_and_overall_total_price.update({order.user_id : order.total_price()})
+
+		return users_and_overall_total_price
+
+	def users_with_overall_highest_total_price(self, users_and_overall_total_price, highest_price):
+		users_with_overall_highest_total_price = {}
+		for key, value in users_and_overall_total_price.iteritems():
+			if value == highest_price:
+				users_with_overall_highest_total_price.update({key : value})
+
+		return users_with_overall_highest_total_price
+
+
+

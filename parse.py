@@ -1,9 +1,9 @@
 import json
 import urllib2
-from item import Item
-from order import Order
-from parser import Parser
-from user_list import UserList
+from src.item import Item
+from src.order import Order
+from src.parser import Parser
+from src.user_list import UserList
 
 
 
@@ -19,10 +19,16 @@ with open('users_json_backup', 'r') as f:
 
 user_list = UserList(users_json)
 
-print "biggest order is: " + str(parser.biggest_order())
+#print "biggest order is: " + str(parser.biggest_order())
 
-for order in parser.order_list_with_num_of_items(9):
-	print "User: " + user_list.user_by_id(order.user_id)['username']
+#for order in parser.order_list_with_num_of_items(9):
+#	print "User: " + user_list.user_by_id(order.user_id)['username']
+
+users_who_have_paid_highest = parser.user_who_has_paid_highest();	
+
+#print "The maximum amount paid is: " + str(users_who_have_paid_highest.)
+for key,value in users_who_have_paid_highest.iteritems():
+	print "The person who has paid the highest amount of money is: " + user_list.user_by_id(key)["username"] + "  Amount paid: " + str(value)
 
 
 #print "user 1 is: " + user_list.user_by_id(5)['username']
